@@ -85,20 +85,32 @@ class ApiService {
   /*
    * Analytics
    */
-  apiHits(api, interval, from, to) {
+  apiHits(api, from, to, interval) {
     return this.$http.get(this.apisURL + api + '/analytics?type=hits&interval=' + interval + '&from=' + from + '&to=' + to);
   }
 
-  apiHitsByStatus(api, interval, from, to) {
+  apiHitsByStatus(api, from, to, interval) {
     return this.$http.get(this.apisURL + api + '/analytics?type=hits_by_status&interval=' + interval + '&from=' + from + '&to=' + to);
   }
 
-  apiHitsByLatency(api, interval, from, to) {
+  apiHitsByLatency(api, from, to, interval) {
     return this.$http.get(this.apisURL + api + '/analytics?type=hits_by_latency&interval=' + interval + '&from=' + from + '&to=' + to);
   }
 
-  apiHitsByPayloadSize(api, interval, from, to) {
+  apiHitsByPayloadSize(api, from, to, interval) {
     return this.$http.get(this.apisURL + api + '/analytics?type=hits_by_payload_size&interval=' + interval + '&from=' + from + '&to=' + to);
+  }
+
+  apiHitsByApplication(api, from, to, interval) {
+    return this.$http.get(this.apisURL + api + '/analytics?type=hits_by_application&interval=' + interval + '&from=' + from + '&to=' + to);
+  }
+
+  apiGlobalHits(api, from, to, interval, key, fieldName, fieldValueFrom, fieldValueTo) {
+    return this.$http.get(this.apisURL + api + '/analytics?type=global_hits&key=' + key + '&fieldName=' + fieldName + '&fieldValueFrom=' + fieldValueFrom + '&fieldValueTo=' + fieldValueTo + '&interval=' + interval + '&from=' + from + '&to=' + to)
+  }
+
+  apiTopHits(api, from, to, interval, key, fieldName, size) {
+    return this.$http.get(this.apisURL + api + '/analytics?type=top_hits&key=' + key + '&fieldName=' + fieldName + '&interval=' + interval + '&from=' + from + '&to=' + to + '&size=' + size)
   }
 
   /*

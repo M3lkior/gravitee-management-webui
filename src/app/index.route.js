@@ -187,8 +187,8 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       }
     })
     .state('apis.admin.analytics', {
-      url: '/analytics',
-      templateUrl: 'app/api/admin/analytics.html',
+      url: '/analytics?report',
+      templateUrl: 'app/api/admin/analytics/analytics.html',
       controller: 'ApiAnalyticsController',
       controllerAs: 'analyticsCtrl',
       menu: {
